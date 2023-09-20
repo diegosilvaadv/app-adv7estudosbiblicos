@@ -1,0 +1,1 @@
+# app-adv7estudosbiblicos
