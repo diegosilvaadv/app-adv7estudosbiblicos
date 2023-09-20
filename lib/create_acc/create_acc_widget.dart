@@ -461,7 +461,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         }
 
                                         context.pushNamedAuth(
-                                            'Complete_perfil', context.mounted);
+                                            'HomePage', context.mounted);
                                       },
                                       text: 'Criar Conta',
                                       options: FFButtonOptions(

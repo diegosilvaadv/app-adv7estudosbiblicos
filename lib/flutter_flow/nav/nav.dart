@@ -100,11 +100,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreateAcc',
           path: '/createAcc',
           builder: (context, params) => CreateAccWidget(),
-        ),
-        FFRoute(
-          name: 'Complete_perfil',
-          path: '/completePerfil',
-          builder: (context, params) => CompletePerfilWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
