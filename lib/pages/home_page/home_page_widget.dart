@@ -249,13 +249,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/Dia_da.png',
-                                    width: 300.0,
-                                    height: 200.0,
-                                    fit: BoxFit.cover,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('pag_estudos');
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/Dia_da.png',
+                                      width: 300.0,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                                 ClipRRect(

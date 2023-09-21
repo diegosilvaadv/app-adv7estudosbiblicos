@@ -25,9 +25,6 @@ class CreateAccModel extends FlutterFlowModel {
       return 'Campo Obrigatório';
     }
 
-    if (val.length < 2) {
-      return 'Requires at least 2 characters.';
-    }
     if (val.length > 20) {
       return 'Maximum 20 characters allowed, currently ${val.length}.';
     }
