@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -97,55 +98,85 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            scaffoldKey.currentState!.openDrawer();
-                          },
-                          child: Icon(
-                            Icons.format_list_bulleted_sharp,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 40.0,
-                          ),
-                        ),
-                        Text(
-                          currentUserEmail,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
-                        Material(
-                          color: Colors.transparent,
-                          elevation: 2.0,
-                          shape: const CircleBorder(),
-                          child: Container(
-                            width: 60.0,
-                            height: 60.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              shape: BoxShape.circle,
-                              border: Border.all(
+                    child: FutureBuilder<List<UserRow>>(
+                      future: UserTable().querySingleRow(
+                        queryFn: (q) => q,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<UserRow> rowUserRowList = snapshot.data!;
+                        final rowUserRow = rowUserRowList.isNotEmpty
+                            ? rowUserRowList.first
+                            : null;
+                        return Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                scaffoldKey.currentState!.openDrawer();
+                              },
+                              child: Icon(
+                                Icons.format_list_bulleted_sharp,
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                width: 2.0,
+                                size: 40.0,
                               ),
                             ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50.0),
-                              child: Image.asset(
-                                'assets/images/vnimc_1.png',
-                                width: 50.0,
-                                height: 50.0,
-                                fit: BoxFit.cover,
+                            Text(
+                              valueOrDefault<String>(
+                                rowUserRow?.nome,
+                                'S/Nome',
+                              ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Material(
+                              color: Colors.transparent,
+                              elevation: 2.0,
+                              shape: const CircleBorder(),
+                              child: Container(
+                                width: 60.0,
+                                height: 60.0,
+                                decoration: BoxDecoration(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    width: 2.0,
+                                  ),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  child: Image.asset(
+                                    'assets/images/vnimc_1.png',
+                                    width: 50.0,
+                                    height: 50.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      ],
+                          ],
+                        );
+                      },
                     ),
                   ),
                 ),
