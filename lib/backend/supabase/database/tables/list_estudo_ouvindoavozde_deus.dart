@@ -27,4 +27,7 @@ class ListEstudoOuvindoavozdeDeusRow extends SupabaseDataRow {
 
   String? get img => getField<String>('img');
   set img(String? value) => setField<String>('img', value);
+
+  String? get html => getField<String>('html');
+  set html(String? value) => setField<String>('html', value);
 }

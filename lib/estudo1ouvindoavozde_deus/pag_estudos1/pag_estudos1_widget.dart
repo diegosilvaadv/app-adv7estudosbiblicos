@@ -101,140 +101,105 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
                         (columnIndex) {
                       final columnListEstudoOuvindoavozdeDeusRow =
                           columnListEstudoOuvindoavozdeDeusRowList[columnIndex];
-                      return FutureBuilder<
-                          List<InfoEstudoOuvindoavozdeDeusRow>>(
-                        future:
-                            InfoEstudoOuvindoavozdeDeusTable().querySingleRow(
-                          queryFn: (q) => q,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
+                      return InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            'ouvindoavozdeDeus_Pag',
+                            queryParameters: {
+                              'cap': serializeParam(
+                                columnListEstudoOuvindoavozdeDeusRow.cap,
+                                ParamType.String,
+                              ),
+                              'html': serializeParam(
+                                columnListEstudoOuvindoavozdeDeusRow.html,
+                                ParamType.String,
+                              ),
+                              'id': serializeParam(
+                                columnListEstudoOuvindoavozdeDeusRow.id
+                                    .toString(),
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
+                        },
+                        child: Card(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 4.0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 10.0, 10.0, 10.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    columnListEstudoOuvindoavozdeDeusRow.img!,
+                                    width: 70.0,
+                                    height: 70.0,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
-                            );
-                          }
-                          List<InfoEstudoOuvindoavozdeDeusRow>
-                              cardInfoEstudoOuvindoavozdeDeusRowList =
-                              snapshot.data!;
-                          final cardInfoEstudoOuvindoavozdeDeusRow =
-                              cardInfoEstudoOuvindoavozdeDeusRowList.isNotEmpty
-                                  ? cardInfoEstudoOuvindoavozdeDeusRowList.first
-                                  : null;
-                          return InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'ouvindoavozdeDeus_Pag',
-                                queryParameters: {
-                                  'cap': serializeParam(
-                                    cardInfoEstudoOuvindoavozdeDeusRow?.cap,
-                                    ParamType.String,
-                                  ),
-                                  'html': serializeParam(
-                                    cardInfoEstudoOuvindoavozdeDeusRow?.html,
-                                    ParamType.String,
-                                  ),
-                                  'id': serializeParam(
-                                    columnListEstudoOuvindoavozdeDeusRow.id
-                                        .toString(),
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            child: Card(
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              elevation: 4.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        columnListEstudoOuvindoavozdeDeusRow
-                                            .img!,
-                                        width: 70.0,
-                                        height: 70.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
-                                      child: Column(
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 10.0, 10.0, 10.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
                                         children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  columnListEstudoOuvindoavozdeDeusRow
-                                                      .cap!,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'Estudo ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                columnListEstudoOuvindoavozdeDeusRow
-                                                    .numero!,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ],
+                                          Expanded(
+                                            child: Text(
+                                              columnListEstudoOuvindoavozdeDeusRow
+                                                  .cap!,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyLarge
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                            ),
                                           ),
                                         ],
                                       ),
-                                    ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            'Estudo ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                          Text(
+                                            columnListEstudoOuvindoavozdeDeusRow
+                                                .numero!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          );
-                        },
+                            ],
+                          ),
+                        ),
                       );
                     }),
                   ),
