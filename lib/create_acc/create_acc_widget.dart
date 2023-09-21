@@ -525,6 +525,8 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         await UserTable().insert({
                                           'id': currentUserUid,
                                           'nome': _model.textController1.text,
+                                          'email': _model
+                                              .emailAddressController.text,
                                         });
 
                                         context.pushNamedAuth(
