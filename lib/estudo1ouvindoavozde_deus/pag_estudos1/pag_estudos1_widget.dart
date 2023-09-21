@@ -202,10 +202,7 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
                   ),
                   FutureBuilder<List<InfoEstudoOuvindoavozdeDeusRow>>(
                     future: InfoEstudoOuvindoavozdeDeusTable().querySingleRow(
-                      queryFn: (q) => q.eq(
-                        'id',
-                        2,
-                      ),
+                      queryFn: (q) => q,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
