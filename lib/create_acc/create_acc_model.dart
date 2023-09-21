@@ -16,9 +16,9 @@ class CreateAccModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for name widget.
-  TextEditingController? nameController;
-  String? Function(BuildContext, String?)? nameControllerValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController;
   String? Function(BuildContext, String?)? emailAddressControllerValidator;
@@ -40,7 +40,7 @@ class CreateAccModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
-    nameController?.dispose();
+    textController1?.dispose();
     emailAddressController?.dispose();
     passwordController?.dispose();
     confPasswordController?.dispose();

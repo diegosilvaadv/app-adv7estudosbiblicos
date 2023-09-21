@@ -69,7 +69,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
     super.initState();
     _model = createModel(context, () => CreateAccModel());
 
-    _model.nameController ??= TextEditingController();
+    _model.textController1 ??= TextEditingController();
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
     _model.confPasswordController ??= TextEditingController();
@@ -185,70 +185,61 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      child: TextFormField(
-                                        controller: _model.nameController,
-                                        autofocus: true,
-                                        autofillHints: [AutofillHints.name],
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelText: 'Nome',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelLarge,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
+                                    child: TextFormField(
+                                      controller: _model.textController1,
+                                      autofocus: true,
+                                      autofillHints: [AutofillHints.name],
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText: 'Nome',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelLarge,
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            width: 2.0,
                                           ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          filled: true,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge,
-                                        validator: _model
-                                            .nameControllerValidator
-                                            .asValidator(context),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge,
+                                      validator: _model.textController1Validator
+                                          .asValidator(context),
                                     ),
                                   ),
                                   Padding(
@@ -524,7 +515,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         final user = await authManager
                                             .createAccountWithEmail(
                                           context,
-                                          _model.nameController.text,
+                                          _model.emailAddressController.text,
                                           _model.passwordController.text,
                                         );
                                         if (user == null) {
@@ -533,7 +524,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
 
                                         await UserTable().insert({
                                           'id': currentUserUid,
-                                          'nome': _model.nameController.text,
+                                          'nome': _model.textController1.text,
                                         });
 
                                         context.pushNamedAuth(
