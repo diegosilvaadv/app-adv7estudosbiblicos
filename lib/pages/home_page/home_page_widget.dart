@@ -116,7 +116,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                         Text(
-                          'NOME DO USUÁRIO',
+                          currentUserEmail,
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Material(
