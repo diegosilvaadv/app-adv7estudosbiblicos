@@ -85,255 +85,260 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Card(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  elevation: 2.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
-                    child: FutureBuilder<List<UserRow>>(
-                      future: UserTable().querySingleRow(
-                        queryFn: (q) => q
-                            .eq(
-                              'id',
-                              currentUserUid,
-                            )
-                            .eq(
-                              'email',
-                              currentUserEmail,
-                            ),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Card(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          12.0, 12.0, 12.0, 12.0),
+                      child: FutureBuilder<List<UserRow>>(
+                        future: UserTable().querySingleRow(
+                          queryFn: (q) => q
+                              .eq(
+                                'id',
+                                currentUserUid,
+                              )
+                              .eq(
+                                'email',
+                                currentUserEmail,
+                              ),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        }
-                        List<UserRow> rowUserRowList = snapshot.data!;
-                        final rowUserRow = rowUserRowList.isNotEmpty
-                            ? rowUserRowList.first
-                            : null;
-                        return Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                scaffoldKey.currentState!.openDrawer();
-                              },
-                              child: Icon(
-                                Icons.format_list_bulleted_sharp,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 40.0,
-                              ),
-                            ),
-                            Text(
-                              valueOrDefault<String>(
-                                rowUserRow?.nome,
-                                'S/Nome',
-                              ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                            Material(
-                              color: Colors.transparent,
-                              elevation: 2.0,
-                              shape: const CircleBorder(),
-                              child: Container(
-                                width: 60.0,
-                                height: 60.0,
-                                decoration: BoxDecoration(
+                            );
+                          }
+                          List<UserRow> rowUserRowList = snapshot.data!;
+                          final rowUserRow = rowUserRowList.isNotEmpty
+                              ? rowUserRowList.first
+                              : null;
+                          return Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  scaffoldKey.currentState!.openDrawer();
+                                },
+                                child: Icon(
+                                  Icons.format_list_bulleted_sharp,
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
+                                  size: 40.0,
+                                ),
+                              ),
+                              Text(
+                                valueOrDefault<String>(
+                                  rowUserRow?.nome,
+                                  'S/Nome',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                              Material(
+                                color: Colors.transparent,
+                                elevation: 2.0,
+                                shape: const CircleBorder(),
+                                child: Container(
+                                  width: 60.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    width: 2.0,
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      width: 2.0,
+                                    ),
                                   ),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50.0),
-                                  child: Image.asset(
-                                    'assets/images/vnimc_1.png',
-                                    width: 50.0,
-                                    height: 50.0,
-                                    fit: BoxFit.cover,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(50.0),
+                                    child: Image.asset(
+                                      'assets/images/vnimc_1.png',
+                                      width: 50.0,
+                                      height: 50.0,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      GradientText(
-                        'ADV7 - ESTUDOS BÍBLICOS',
-                        style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                        colors: [
-                          FlutterFlowTheme.of(context).primary,
-                          FlutterFlowTheme.of(context).secondary
-                        ],
-                        gradientDirection: GradientDirection.ltr,
-                        gradientType: GradientType.linear,
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'Aplicativo destinado a instrutores biblicos.',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
-                          child: GridView(
-                            padding: EdgeInsets.zero,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              crossAxisSpacing: 10.0,
-                              mainAxisSpacing: 10.0,
-                              childAspectRatio: 1.0,
-                            ),
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/Dia_da.png',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/903/600',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ],
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        GradientText(
+                          'ADV7 - ESTUDOS BÍBLICOS',
+                          style:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          colors: [
+                            FlutterFlowTheme.of(context).primary,
+                            FlutterFlowTheme.of(context).secondary
+                          ],
+                          gradientDirection: GradientDirection.ltr,
+                          gradientType: GradientType.linear,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          'Aplicativo destinado a instrutores biblicos.',
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 0.0),
+                            child: GridView(
+                              padding: EdgeInsets.zero,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 10.0,
+                                mainAxisSpacing: 10.0,
+                                childAspectRatio: 1.0,
+                              ),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/Dia_da.png',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    'https://picsum.photos/seed/903/600',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
