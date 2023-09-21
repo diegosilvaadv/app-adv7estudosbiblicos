@@ -52,7 +52,7 @@ class _OuvindoavozdeDeusPagWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
+          backgroundColor: Color(0xFF14213D),
           automaticallyImplyLeading: true,
           title: Text(
             valueOrDefault<String>(
@@ -75,8 +75,22 @@ class _OuvindoavozdeDeusPagWidgetState
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Html(
-                  data: widget.html!,
+                MouseRegion(
+                  opaque: true,
+                  cursor: MouseCursor.defer ?? MouseCursor.defer,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                    child: Html(
+                      data: widget.html!,
+                    ),
+                  ),
+                  onEnter: ((event) async {
+                    setState(() => _model.mouseRegionHovered = true);
+                  }),
+                  onExit: ((event) async {
+                    setState(() => _model.mouseRegionHovered = false);
+                  }),
                 ),
               ],
             ),

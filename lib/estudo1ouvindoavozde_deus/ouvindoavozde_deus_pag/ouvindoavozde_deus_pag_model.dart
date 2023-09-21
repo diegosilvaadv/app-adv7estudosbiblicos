@@ -10,6 +10,8 @@ class OuvindoavozdeDeusPagModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for MouseRegion widget.
+  bool mouseRegionHovered = false;
 
   /// Initialization and disposal methods.
 
