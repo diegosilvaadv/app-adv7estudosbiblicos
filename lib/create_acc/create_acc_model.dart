@@ -16,9 +16,25 @@ class CreateAccModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
+  String? _textController1Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Campo Obrigatório';
+    }
+
+    if (val.length < 2) {
+      return 'Requires at least 2 characters.';
+    }
+    if (val.length > 20) {
+      return 'Maximum 20 characters allowed, currently ${val.length}.';
+    }
+
+    return null;
+  }
+
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController;
   String? Function(BuildContext, String?)? emailAddressControllerValidator;
@@ -34,6 +50,7 @@ class CreateAccModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    textController1Validator = _textController1Validator;
     passwordVisibility = false;
     confPasswordVisibility = false;
   }

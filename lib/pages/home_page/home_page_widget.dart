@@ -152,7 +152,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               Text(
                                 valueOrDefault<String>(
                                   rowUserRow?.nome,
-                                  'S/Nome',
+                                  's/nome',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
