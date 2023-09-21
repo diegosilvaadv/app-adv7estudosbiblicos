@@ -5,4 +5,5 @@ export '../supabase.dart';
 export 'row.dart';
 export 'table.dart';
 
+export 'tables/info_estudo_ouvindoavozde_deus.dart';
 export 'tables/user.dart';

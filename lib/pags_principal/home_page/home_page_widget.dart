@@ -255,7 +255,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('pag_estudos');
+                                    context.pushNamed('pag_estudos1');
                                   },
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),

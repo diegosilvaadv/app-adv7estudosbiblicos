@@ -102,9 +102,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateAccWidget(),
         ),
         FFRoute(
-          name: 'pag_estudos',
-          path: '/pagEstudos',
-          builder: (context, params) => PagEstudosWidget(),
+          name: 'pag_estudos1',
+          path: '/pagEstudos1',
+          builder: (context, params) => PagEstudos1Widget(),
+        ),
+        FFRoute(
+          name: 'ouvindoavozdeDeus_Pag',
+          path: '/ouvindoavozdeDeusPag',
+          builder: (context, params) => OuvindoavozdeDeusPagWidget(
+            cap: params.getParam('cap', ParamType.String),
+            html: params.getParam('html', ParamType.String),
+            id: params.getParam('id', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
