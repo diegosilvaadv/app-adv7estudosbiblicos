@@ -208,6 +208,8 @@ dynamic deserializeParam<T>(
             return InfoEstudoOuvindoavozdeDeusRow(data);
           case UserRow:
             return UserRow(data);
+          case ListEstudoOuvindoavozdeDeusRow:
+            return ListEstudoOuvindoavozdeDeusRow(data);
           default:
             return null;
         }
