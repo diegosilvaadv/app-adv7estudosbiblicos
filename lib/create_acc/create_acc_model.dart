@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -16,8 +17,11 @@ class CreateAccModel extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   // State field(s) for emailAddress widget.
-  TextEditingController? emailAddressController;
-  String? Function(BuildContext, String?)? emailAddressControllerValidator;
+  TextEditingController? emailAddressController1;
+  String? Function(BuildContext, String?)? emailAddressController1Validator;
+  // State field(s) for emailAddress widget.
+  TextEditingController? emailAddressController2;
+  String? Function(BuildContext, String?)? emailAddressController2Validator;
   // State field(s) for password widget.
   TextEditingController? passwordController;
   late bool passwordVisibility;
@@ -36,7 +40,8 @@ class CreateAccModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
-    emailAddressController?.dispose();
+    emailAddressController1?.dispose();
+    emailAddressController2?.dispose();
     passwordController?.dispose();
     confPasswordController?.dispose();
   }

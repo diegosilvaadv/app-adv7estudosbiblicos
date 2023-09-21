@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -68,7 +69,8 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
     super.initState();
     _model = createModel(context, () => CreateAccModel());
 
-    _model.emailAddressController ??= TextEditingController();
+    _model.emailAddressController1 ??= TextEditingController();
+    _model.emailAddressController2 ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
     _model.confPasswordController ??= TextEditingController();
   }
@@ -187,7 +189,78 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
-                                            _model.emailAddressController,
+                                            _model.emailAddressController1,
+                                        autofocus: true,
+                                        autofillHints: [AutofillHints.name],
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Nome',
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelLarge,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          filled: true,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge,
+                                        keyboardType: TextInputType.name,
+                                        validator: _model
+                                            .emailAddressController1Validator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 16.0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      child: TextFormField(
+                                        controller:
+                                            _model.emailAddressController2,
                                         autofocus: true,
                                         autofillHints: [AutofillHints.email],
                                         obscureText: false,
@@ -247,7 +320,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         validator: _model
-                                            .emailAddressControllerValidator
+                                            .emailAddressController2Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -453,12 +526,18 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         final user = await authManager
                                             .createAccountWithEmail(
                                           context,
-                                          _model.emailAddressController.text,
+                                          _model.emailAddressController1.text,
                                           _model.passwordController.text,
                                         );
                                         if (user == null) {
                                           return;
                                         }
+
+                                        await UserTable().insert({
+                                          'id': currentUserUid,
+                                          'nome': _model
+                                              .emailAddressController1.text,
+                                        });
 
                                         context.pushNamedAuth(
                                             'HomePage', context.mounted);
