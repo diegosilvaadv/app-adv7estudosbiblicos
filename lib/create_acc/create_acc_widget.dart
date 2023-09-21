@@ -69,8 +69,8 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
     super.initState();
     _model = createModel(context, () => CreateAccModel());
 
-    _model.emailAddressController1 ??= TextEditingController();
-    _model.emailAddressController2 ??= TextEditingController();
+    _model.nameController ??= TextEditingController();
+    _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
     _model.confPasswordController ??= TextEditingController();
   }
@@ -188,8 +188,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                     child: Container(
                                       width: double.infinity,
                                       child: TextFormField(
-                                        controller:
-                                            _model.emailAddressController1,
+                                        controller: _model.nameController,
                                         autofocus: true,
                                         autofillHints: [AutofillHints.name],
                                         obscureText: false,
@@ -248,7 +247,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                             .bodyLarge,
                                         keyboardType: TextInputType.name,
                                         validator: _model
-                                            .emailAddressController1Validator
+                                            .nameControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -260,7 +259,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
-                                            _model.emailAddressController2,
+                                            _model.emailAddressController,
                                         autofocus: true,
                                         autofillHints: [AutofillHints.email],
                                         obscureText: false,
@@ -320,7 +319,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         validator: _model
-                                            .emailAddressController2Validator
+                                            .emailAddressControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -526,7 +525,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         final user = await authManager
                                             .createAccountWithEmail(
                                           context,
-                                          _model.emailAddressController1.text,
+                                          _model.nameController.text,
                                           _model.passwordController.text,
                                         );
                                         if (user == null) {
@@ -535,8 +534,7 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
 
                                         await UserTable().insert({
                                           'id': currentUserUid,
-                                          'nome': _model
-                                              .emailAddressController1.text,
+                                          'nome': _model.nameController.text,
                                         });
 
                                         context.pushNamedAuth(

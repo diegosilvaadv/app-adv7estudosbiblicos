@@ -100,6 +100,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreateAcc',
           path: '/createAcc',
           builder: (context, params) => CreateAccWidget(),
+        ),
+        FFRoute(
+          name: 'pag_estudos',
+          path: '/pagEstudos',
+          builder: (context, params) => PagEstudosWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
