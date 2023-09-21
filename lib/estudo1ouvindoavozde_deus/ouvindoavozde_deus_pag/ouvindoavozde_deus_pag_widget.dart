@@ -62,7 +62,7 @@ class _OuvindoavozdeDeusPagWidgetState
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
-                  fontSize: 22.0,
+                  fontSize: 18.0,
                 ),
           ),
           actions: [],
@@ -71,13 +71,15 @@ class _OuvindoavozdeDeusPagWidgetState
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Html(
-                data: widget.html!,
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Html(
+                  data: widget.html!,
+                ),
+              ],
+            ),
           ),
         ),
       ),

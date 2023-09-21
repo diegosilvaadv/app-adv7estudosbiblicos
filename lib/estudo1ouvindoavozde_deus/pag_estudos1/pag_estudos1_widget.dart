@@ -143,7 +143,10 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.network(
-                                    columnListEstudoOuvindoavozdeDeusRow.img!,
+                                    valueOrDefault<String>(
+                                      columnListEstudoOuvindoavozdeDeusRow.img,
+                                      'https://files.adventistas.org/pastor.adventistas.org/pt/2017/06/ouvindoavoz.jpg',
+                                    ),
                                     width: 70.0,
                                     height: 70.0,
                                     fit: BoxFit.cover,
