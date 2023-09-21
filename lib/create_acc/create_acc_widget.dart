@@ -245,7 +245,6 @@ class _CreateAccWidgetState extends State<CreateAccWidget>
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge,
-                                        keyboardType: TextInputType.name,
                                         validator: _model
                                             .nameControllerValidator
                                             .asValidator(context),

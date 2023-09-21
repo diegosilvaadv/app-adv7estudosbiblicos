@@ -87,10 +87,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
             child: FutureBuilder<List<UserRow>>(
               future: UserTable().querySingleRow(
-                queryFn: (q) => q.eq(
-                  'id',
-                  currentUserUid,
-                ),
+                queryFn: (q) => q
+                    .eq(
+                      'id',
+                      currentUserUid,
+                    )
+                    .eq(
+                      'email',
+                      currentUserEmail,
+                    ),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
@@ -143,7 +148,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             ),
                             Text(
-                              'NOME DO USUÁRIO',
+                              columnUserRow!.nome!,
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                             Material(
