@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,9 +76,25 @@ class _OuvindoavozdeDeusPagWidgetState
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                MouseRegion(
-                  opaque: true,
-                  cursor: MouseCursor.defer ?? MouseCursor.defer,
+                AlignedTooltip(
+                  content: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                      child: Text(
+                        'Message...',
+                        style: FlutterFlowTheme.of(context).bodyLarge,
+                      )),
+                  offset: 4.0,
+                  preferredDirection: AxisDirection.down,
+                  borderRadius: BorderRadius.circular(8.0),
+                  backgroundColor:
+                      FlutterFlowTheme.of(context).secondaryBackground,
+                  elevation: 4.0,
+                  tailBaseWidth: 24.0,
+                  tailLength: 12.0,
+                  waitDuration: Duration(milliseconds: 100),
+                  showDuration: Duration(milliseconds: 1500),
+                  triggerMode: TooltipTriggerMode.tap,
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
@@ -85,12 +102,6 @@ class _OuvindoavozdeDeusPagWidgetState
                       data: widget.html!,
                     ),
                   ),
-                  onEnter: ((event) async {
-                    setState(() => _model.mouseRegionHovered = true);
-                  }),
-                  onExit: ((event) async {
-                    setState(() => _model.mouseRegionHovered = false);
-                  }),
                 ),
               ],
             ),
