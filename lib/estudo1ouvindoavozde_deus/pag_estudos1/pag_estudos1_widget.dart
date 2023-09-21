@@ -74,15 +74,7 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
             padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
             child: FutureBuilder<List<InfoEstudoOuvindoavozdeDeusRow>>(
               future: InfoEstudoOuvindoavozdeDeusTable().querySingleRow(
-                queryFn: (q) => q
-                    .eq(
-                      'id',
-                      3,
-                    )
-                    .eq(
-                      'id',
-                      4,
-                    ),
+                queryFn: (q) => q,
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
