@@ -174,11 +174,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                   ),
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(50.0),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
                                       'assets/images/vnimc_1.png',
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 300.0,
+                                      height: 200.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
