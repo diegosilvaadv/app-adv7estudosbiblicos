@@ -214,7 +214,7 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
                               'id': serializeParam(
                                 valueOrDefault<String>(
                                   columnInfoEstudoOuvindoavozdeDeusRow?.id
-                                      ?.toString(),
+                                      .toString(),
                                   '2',
                                 ),
                                 ParamType.String,
