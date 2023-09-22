@@ -6,3 +6,6 @@ export '/estudo1ouvindoavozde_deus/pag_estudos1/pag_estudos1_widget.dart'
     show PagEstudos1Widget;
 export '/estudo1ouvindoavozde_deus/ouvindoavozde_deus_pag/ouvindoavozde_deus_pag_widget.dart'
     show OuvindoavozdeDeusPagWidget;
+export '/pags_principal/politica_privacidade/politica_privacidade_widget.dart'
+    show PoliticaPrivacidadeWidget;
+export '/pags_principal/sobre_app/sobre_app_widget.dart' show SobreAppWidget;

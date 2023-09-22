@@ -114,6 +114,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             html: params.getParam('html', ParamType.String),
             id: params.getParam('id', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'Politica_privacidade',
+          path: '/politicaPrivacidade',
+          builder: (context, params) => PoliticaPrivacidadeWidget(),
+        ),
+        FFRoute(
+          name: 'Sobre_app',
+          path: '/sobreApp',
+          builder: (context, params) => SobreAppWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

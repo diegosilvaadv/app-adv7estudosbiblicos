@@ -153,32 +153,57 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ],
                       ),
                     ),
-                    Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 4.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'Ouvindo a Voz de Deus',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(
+                          'ouvindoavozdeDeus_Pag',
+                          queryParameters: {
+                            'cap': serializeParam(
+                              '',
+                              ParamType.String,
                             ),
-                          ],
+                            'html': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                            'id': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        elevation: 4.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 10.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'Ouvindo a Voz de Deus',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -441,12 +466,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   size: 40.0,
                                 ),
                               ),
-                              Text(
-                                valueOrDefault<String>(
-                                  rowUserRow?.nome,
-                                  's/nome',
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    'Olá ',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                  Text(
+                                    valueOrDefault<String>(
+                                      rowUserRow?.nome,
+                                      's/nome',
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ],
                               ),
                               Material(
                                 color: Colors.transparent,
