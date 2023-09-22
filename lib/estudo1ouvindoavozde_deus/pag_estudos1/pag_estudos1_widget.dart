@@ -2,6 +2,7 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -142,8 +143,8 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
                                     10.0, 10.0, 10.0, 10.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    columnListEstudoOuvindoavozdeDeusRow.img!,
+                                  child: Image.asset(
+                                    'assets/images/02_a_beleza_da_criacao_divina_2.png',
                                     width: 70.0,
                                     height: 70.0,
                                     fit: BoxFit.cover,
