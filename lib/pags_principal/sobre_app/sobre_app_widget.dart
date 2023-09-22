@@ -129,7 +129,7 @@ class _SobreAppWidgetState extends State<SobreAppWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 400.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 150.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
