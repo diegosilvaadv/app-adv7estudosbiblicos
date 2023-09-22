@@ -159,23 +159,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed(
-                          'ouvindoavozdeDeus_Pag',
-                          queryParameters: {
-                            'cap': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'html': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'id': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                        );
+                        context.pushNamed('pag_estudos1');
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
