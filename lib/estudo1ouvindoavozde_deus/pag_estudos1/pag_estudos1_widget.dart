@@ -143,8 +143,13 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
                                     10.0, 10.0, 10.0, 10.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/02_a_beleza_da_criacao_divina_2.png',
+                                  child: CachedNetworkImage(
+                                    fadeInDuration: Duration(milliseconds: 500),
+                                    fadeOutDuration:
+                                        Duration(milliseconds: 500),
+                                    imageUrl:
+                                        columnListEstudoOuvindoavozdeDeusRow
+                                            .img!,
                                     width: 70.0,
                                     height: 70.0,
                                     fit: BoxFit.cover,
