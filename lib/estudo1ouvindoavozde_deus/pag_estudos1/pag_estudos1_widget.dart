@@ -188,11 +188,14 @@ class _PagEstudos1WidgetState extends State<PagEstudos1Widget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
                                           ),
-                                          Text(
-                                            columnListEstudoOuvindoavozdeDeusRow
-                                                .numero!,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Expanded(
+                                            child: Text(
+                                              columnListEstudoOuvindoavozdeDeusRow
+                                                  .numero!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),

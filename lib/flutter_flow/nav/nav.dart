@@ -124,6 +124,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Sobre_app',
           path: '/sobreApp',
           builder: (context, params) => SobreAppWidget(),
+        ),
+        FFRoute(
+          name: 'teste',
+          path: '/teste',
+          builder: (context, params) => TesteWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
