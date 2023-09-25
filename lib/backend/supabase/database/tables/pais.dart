@@ -20,6 +20,6 @@ class PaisRow extends SupabaseDataRow {
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
 
-  String? get nome => getField<String>('NOME');
-  set nome(String? value) => setField<String>('NOME', value);
+  String? get pais => getField<String>('PAIS');
+  set pais(String? value) => setField<String>('PAIS', value);
 }

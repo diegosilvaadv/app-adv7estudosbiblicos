@@ -22,4 +22,7 @@ class EstadoRow extends SupabaseDataRow {
 
   String? get estado => getField<String>('ESTADO');
   set estado(String? value) => setField<String>('ESTADO', value);
+
+  String? get pais => getField<String>('PAIS');
+  set pais(String? value) => setField<String>('PAIS', value);
 }

@@ -86,7 +86,7 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
                     controller: _model.dropDownValueController1 ??=
                         FormFieldController<String>(null),
                     options: dropDownPaisRowList
-                        .map((e) => e.nome)
+                        .map((e) => e.pais)
                         .withoutNulls
                         .toList(),
                     onChanged: (val) =>
