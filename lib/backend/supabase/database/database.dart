@@ -5,7 +5,7 @@ export '../supabase.dart';
 export 'row.dart';
 export 'table.dart';
 
+export 'tables/estados.dart';
 export 'tables/user.dart';
 export 'tables/pais.dart';
-export 'tables/estado.dart';
 export 'tables/list_estudo_ouvindoavozde_deus.dart';

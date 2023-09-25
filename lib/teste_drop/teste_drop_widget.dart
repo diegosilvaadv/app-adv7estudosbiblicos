@@ -86,7 +86,7 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
                     controller: _model.dropDownValueController1 ??=
                         FormFieldController<String>(null),
                     options: dropDownPaisRowList
-                        .map((e) => e.pais)
+                        .map((e) => e.nomePais)
                         .withoutNulls
                         .toList(),
                     onChanged: (val) =>
@@ -113,12 +113,9 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
                   );
                 },
               ),
-              FutureBuilder<List<EstadoRow>>(
-                future: EstadoTable().queryRows(
-                  queryFn: (q) => q.eq(
-                    'ESTADO',
-                    _model.dropDownValue1,
-                  ),
+              FutureBuilder<List<EstadosRow>>(
+                future: EstadosTable().queryRows(
+                  queryFn: (q) => q,
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
@@ -135,12 +132,12 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
                       ),
                     );
                   }
-                  List<EstadoRow> dropDownEstadoRowList = snapshot.data!;
+                  List<EstadosRow> dropDownEstadosRowList = snapshot.data!;
                   return FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController2 ??=
                         FormFieldController<String>(null),
-                    options: dropDownEstadoRowList
-                        .map((e) => e.estado)
+                    options: dropDownEstadosRowList
+                        .map((e) => e.nomeEstado)
                         .withoutNulls
                         .toList(),
                     onChanged: (val) =>

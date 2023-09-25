@@ -2,7 +2,7 @@ import '../database.dart';
 
 class PaisTable extends SupabaseTable<PaisRow> {
   @override
-  String get tableName => 'PAIS';
+  String get tableName => 'pais';
 
   @override
   PaisRow createRow(Map<String, dynamic> data) => PaisRow(data);
@@ -20,6 +20,6 @@ class PaisRow extends SupabaseDataRow {
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
 
-  String? get pais => getField<String>('PAIS');
-  set pais(String? value) => setField<String>('PAIS', value);
+  String? get nomePais => getField<String>('nome_pais');
+  set nomePais(String? value) => setField<String>('nome_pais', value);
 }
