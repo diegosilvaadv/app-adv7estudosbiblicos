@@ -209,7 +209,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'ESTUDO 2',
+                                  'BÍBLIA FÁCIL - APOCALIPSE',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -472,7 +472,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Olá ',
+                                    'Olá, ',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
