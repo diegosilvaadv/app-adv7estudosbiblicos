@@ -44,7 +44,7 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -62,113 +62,104 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  FutureBuilder<List<PaisRow>>(
-                    future: PaisTable().queryRows(
-                      queryFn: (q) => q,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<PaisRow> dropDownPaisRowList = snapshot.data!;
-                      return FlutterFlowDropDown<String>(
-                        controller: _model.dropDownValueController1 ??=
-                            FormFieldController<String>(null),
-                        options: ['Option 1'],
-                        onChanged: (val) =>
-                            setState(() => _model.dropDownValue1 = val),
-                        width: 388.0,
+              FutureBuilder<List<PaisRow>>(
+                future: PaisTable().queryRows(
+                  queryFn: (q) => q,
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
                         height: 50.0,
-                        textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                        hintText: 'Please select...',
-                        icon: Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            FlutterFlowTheme.of(context).primary,
+                          ),
                         ),
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        elevation: 2.0,
-                        borderColor: FlutterFlowTheme.of(context).alternate,
-                        borderWidth: 2.0,
-                        borderRadius: 8.0,
-                        margin: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 4.0, 16.0, 4.0),
-                        hidesUnderline: true,
-                        isSearchable: false,
-                        isMultiSelect: false,
-                      );
-                    },
-                  ),
-                ],
+                      ),
+                    );
+                  }
+                  List<PaisRow> dropDownPaisRowList = snapshot.data!;
+                  return FlutterFlowDropDown<String>(
+                    controller: _model.dropDownValueController1 ??=
+                        FormFieldController<String>(
+                      _model.dropDownValue1 ??= '',
+                    ),
+                    options: ['Option 1'],
+                    optionLabels: ['Option 1'],
+                    onChanged: (val) =>
+                        setState(() => _model.dropDownValue1 = val),
+                    width: 388.0,
+                    height: 50.0,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    hintText: 'Please select...',
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
+                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 2.0,
+                    borderColor: FlutterFlowTheme.of(context).alternate,
+                    borderWidth: 2.0,
+                    borderRadius: 8.0,
+                    margin:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                    hidesUnderline: true,
+                    isSearchable: false,
+                    isMultiSelect: false,
+                  );
+                },
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  FutureBuilder<List<EstadoRow>>(
-                    future: EstadoTable().queryRows(
-                      queryFn: (q) => q,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<EstadoRow> dropDownEstadoRowList = snapshot.data!;
-                      return FlutterFlowDropDown<String>(
-                        controller: _model.dropDownValueController2 ??=
-                            FormFieldController<String>(null),
-                        options: ['Option 1'],
-                        onChanged: (val) =>
-                            setState(() => _model.dropDownValue2 = val),
-                        width: 388.0,
+              FutureBuilder<List<EstadoRow>>(
+                future: EstadoTable().queryRows(
+                  queryFn: (q) => q,
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
                         height: 50.0,
-                        textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                        hintText: 'Please select...',
-                        icon: Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            FlutterFlowTheme.of(context).primary,
+                          ),
                         ),
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        elevation: 2.0,
-                        borderColor: FlutterFlowTheme.of(context).alternate,
-                        borderWidth: 2.0,
-                        borderRadius: 8.0,
-                        margin: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 4.0, 16.0, 4.0),
-                        hidesUnderline: true,
-                        isSearchable: false,
-                        isMultiSelect: false,
-                      );
-                    },
-                  ),
-                ],
+                      ),
+                    );
+                  }
+                  List<EstadoRow> dropDownEstadoRowList = snapshot.data!;
+                  return FlutterFlowDropDown<String>(
+                    controller: _model.dropDownValueController2 ??=
+                        FormFieldController<String>(null),
+                    options: ['Option 1'],
+                    onChanged: (val) =>
+                        setState(() => _model.dropDownValue2 = val),
+                    width: 388.0,
+                    height: 50.0,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    hintText: 'Please select...',
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
+                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 2.0,
+                    borderColor: FlutterFlowTheme.of(context).alternate,
+                    borderWidth: 2.0,
+                    borderRadius: 8.0,
+                    margin:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                    hidesUnderline: true,
+                    isSearchable: false,
+                    isMultiSelect: false,
+                  );
+                },
               ),
             ],
           ),
