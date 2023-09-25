@@ -590,7 +590,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/Dia_da.png',
+                                      'assets/images/logo_ouvindo_a_voz_de_Deus.png',
                                       width: 300.0,
                                       height: 200.0,
                                       fit: BoxFit.cover,
