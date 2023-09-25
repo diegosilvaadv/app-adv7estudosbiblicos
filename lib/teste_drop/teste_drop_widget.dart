@@ -139,7 +139,10 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
                   return FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController2 ??=
                         FormFieldController<String>(null),
-                    options: ['Option 1'],
+                    options: dropDownEstadoRowList
+                        .map((e) => e.estado)
+                        .withoutNulls
+                        .toList(),
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue2 = val),
                     width: 388.0,
