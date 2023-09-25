@@ -206,6 +206,10 @@ dynamic deserializeParam<T>(
         switch (T) {
           case UserRow:
             return UserRow(data);
+          case PaisRow:
+            return PaisRow(data);
+          case EstadoRow:
+            return EstadoRow(data);
           case ListEstudoOuvindoavozdeDeusRow:
             return ListEstudoOuvindoavozdeDeusRow(data);
           default:
