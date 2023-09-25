@@ -46,7 +46,7 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: true,
           title: Text(
-            'Page Title',
+            'TESTE DROPDOWN',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -115,7 +115,10 @@ class _TesteDropWidgetState extends State<TesteDropWidget> {
               ),
               FutureBuilder<List<EstadoRow>>(
                 future: EstadoTable().queryRows(
-                  queryFn: (q) => q,
+                  queryFn: (q) => q.eq(
+                    'ESTADO',
+                    _model.dropDownValue1,
+                  ),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
