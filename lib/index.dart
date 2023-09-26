@@ -9,4 +9,3 @@ export '/estudo1ouvindoavozde_deus/ouvindoavozde_deus_pag/ouvindoavozde_deus_pag
 export '/pags_principal/politica_privacidade/politica_privacidade_widget.dart'
     show PoliticaPrivacidadeWidget;
 export '/pags_principal/sobre_app/sobre_app_widget.dart' show SobreAppWidget;
-export '/teste_drop/teste_drop_widget.dart' show TesteDropWidget;
