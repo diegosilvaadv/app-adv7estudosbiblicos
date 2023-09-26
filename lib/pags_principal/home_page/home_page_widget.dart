@@ -795,7 +795,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            'BÍBLIA FÁCIL  APOCALIPSE',
+                                            'BÍBLIA FÁCIL  DANIEL',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
