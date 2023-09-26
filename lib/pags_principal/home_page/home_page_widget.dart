@@ -760,7 +760,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
-                                        'https://m.media-amazon.com/images/I/61CZPBqGyjL._AC_UF1000,1000_QL80_.jpg',
+                                        'https://files.adventistas.org/institucional/pt/sites/8/2013/12/31153537/guia-biblia-facil.jpg',
                                         width: 100.0,
                                         height: 70.0,
                                         fit: BoxFit.cover,
@@ -805,6 +805,42 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ],
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 16.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FFButtonWidget(
+                          onPressed: () async {
+                            context.pushNamed('pag_sermoes');
+                          },
+                          text: 'ACESSAR PÁGINA DOS SERMÕES',
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
